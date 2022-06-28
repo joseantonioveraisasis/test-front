@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Frontend</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dselect.css">
+    
+</head>
+<body class="bg-light">
+    
+    <div class="container">
+
+        <main>
+
+            <div class="row g-5 mt-3">
+
+                <div class="card col-lg-12 p-4">
+                    <h4 class="mb-3">Reglas de negocio</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="name" class="form-label">Nombre de la regla</label>
+                                <input id="name" type="text" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="schemas" class="form-label">Esquema</label>
+                                <select id="schemas" class="form-select" required>
+                                    <option value="">------------</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="tables" class="form-label">Tabla</label>
+                                <select id="tables" data-dselect-search="true" class="form-select" required>
+                                    <option value="">------------</option>
+                                    <option value="chrome">Chrome</option>
+                                    <option value="firefox">Firefox</option>
+                                    <option value="safari">Safari</option>
+                                    <option value="edge">Edge</option>
+                                    <option value="opera">Opera</option>
+                                    <option value="brave">Brave</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="columns" class="form-label">Campo</label>
+                                <select id="columns" class="form-select" required>
+                                    <option value="">------------</option>
+                                    <option>Campo 1</option>
+                                    <option>Campo 2</option>
+                                    <option>Campo 3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <label for="rule" class="form-label">Tipo de regla</label>
+                                <select id="rule" class="form-select" required>
+                                    <option value="">------------</option>
+                                    <option>Tipo de regla 1</option>
+                                    <option>Tipo de regla 2</option>
+                                    <option disabled>Tipo de regla 3</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="ractiva">
+                            <label class="form-check-label" for="ractiva">Regla activa</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="rmandatoria" checked>
+                            <label class="form-check-label" for="rmandatoria">Regla mandatoria</label>
+                        </div>
+
+                        <!-- <div class="col-12 mt-3">
+                        <label for="filtro" class="form-label">Filtro</label>
+                        <textarea class="form-control" id="filtro" rows="3" placeholder="Aca debe ir un ejemplo de lo que sería un filtro"></textarea>
+                        </div> -->
+
+                        <hr class="my-4">
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="reset" class="btn btn-light">Limpiar</button>
+                            <button type="submit" class="btn btn-primary">Guadar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dselect.js"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/custom.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+.container {
+  max-width: 640px;
+}
+.bg-light{
+  background-color: #ebeff5 !important;
+}
+.card{
+  border-radius: 1.5rem !important;
+}
