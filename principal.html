@@ -8,6 +8,29 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="css/dselect.css">
+    <style>
+        :root
+        .module-field-grid{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            column-gap: 10px;
+        }
+        .field-select-date{
+            margin-bottom: 16px;
+            width: 48%;
+        }
+        .field-select{
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+        .input-rule{
+            width: 48%;
+        }
+    </style>
     
 </head>
 <body class="bg-light">
@@ -19,25 +42,24 @@
             <div class="row g-5 mt-3">
 
                 <div class="card col-lg-12 p-4">
-                    <h4 class="mb-3">Reglas de negocio</h4>
+                    <h4 class="mb-3">Business rule</h4>
                     <form class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="name" class="form-label">Nombre de la regla</label>
+                                <label for="name" class="form-label">Rule name</label>
                                 <input id="name" type="text" class="form-control" required>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="schemas" class="form-label">Esquema</label>
+                                <label for="schemas" class="form-label">Schema</label>
                                 <select id="schemas" class="form-select" required>
                                     <option value="">------------</option>
                                 </select>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="tables" class="form-label">Tabla</label>
+                                <label for="tables" class="form-label">Table</label>
                                 <select id="tables" data-dselect-search="true" class="form-select" required>
-                                    <option value="">------------</option>
                                     <option value="chrome">Chrome</option>
                                     <option value="firefox">Firefox</option>
                                     <option value="safari">Safari</option>
@@ -48,22 +70,25 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label for="columns" class="form-label">Campo</label>
+                                <label for="columns" class="form-label">Field</label>
                                 <select id="columns" class="form-select" required>
-                                    <option value="">------------</option>
-                                    <option>Campo 1</option>
-                                    <option>Campo 2</option>
-                                    <option>Campo 3</option>
+                                    <option>Field 1</option>
+                                    <option>Field 2</option>
+                                    <option>Field 3</option>
                                 </select>
                             </div>
 
                             <div class="col-12 mb-4">
-                                <label for="rule" class="form-label">Tipo de regla</label>
+                                <label for="rule" class="form-label">Type rule</label>
                                 <select id="rule" class="form-select" required>
-                                    <option value="">------------</option>
-                                    <option>Tipo de regla 1</option>
-                                    <option>Tipo de regla 2</option>
-                                    <option disabled>Tipo de regla 3</option>
+                                    <option value="">Select type</option>
+                                    <option>Type REGEX rule</option>
+                                    <option>Date1>Date2 rule</option>
+                                    <option>Default value rule</option>
+                                    <option>Minor field rule</option>
+                                    <option>Major field rule</option>
+                                    <option disabled>Constraint rule</option>
+                                    <option disabled>Admitted value rule</option>
                                 </select>
                             </div>
 
@@ -71,12 +96,12 @@
 
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" id="ractiva">
-                            <label class="form-check-label" for="ractiva">Regla activa</label>
+                            <label class="form-check-label" for="ractiva">Active rule</label>
                         </div>
 
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" id="rmandatoria" checked>
-                            <label class="form-check-label" for="rmandatoria">Regla mandatoria</label>
+                            <label class="form-check-label" for="rmandatoria">Mandatory rule</label>
                         </div>
 
                         <!-- <div class="col-12 mt-3">
@@ -86,9 +111,160 @@
 
                         <hr class="my-4">
 
+                        <!-- ESQUELETOS DE LOS MODULOS PARA CREAR LAS INTERACCIONES CON JS -->
+                        <!-- TIPO DE REGEXP -->
+                        <h4>
+                            Type REGEX rule
+                        </h4>
+
+                        <div class="module-field-grid">
+                            <div class="input-rule" id="rule-equal">
+                                <label for="rule-equal">Rule equal</label>
+                                <input type="text" class="form-control" id="rule-equal">
+                            </div>
+                            <div class="input-rule" id="rule-equal-sql">
+                                <label for="rule-equal-sql">Rule equal SQL</label>
+                                <input type="text" class="form-control" id="rule-equal-sql">
+                            </div>
+                        </div>
+
+                        <div class="field-select">
+                            <label class="form-label" for="field-date-one">Type REGEXP</label>
+                            <select id="field-date-one" data-dselect-search="true" class="form-select" required>
+                                <option value="f1">REGEXP1</option>
+                                <option value="f2">REGEXP2</option>
+                                <option value="f3">REGEXP3</option>
+                                <option value="f4">REGEXP4</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <!-- SI EL USUARIO EN LA LISTA ANTERIOR SELECCIONE Others, SE DEBE DESPLEGAR EL SIGUIENTE BLOQUE DE NEW REGEXP -->
+
+                        <h4>
+                            New REGEXP
+                        </h4>
+
+                        <div class="module-new-regex">
+                            <div class="input" id="regex-name">
+                                <label for="regex-name">REGEX name</label>
+                                <input type="text" class="form-control" id="regex-name" placeholder="REGEX FOR IP">
+                            </div>
+                            <div class="input" id="regex-description">
+                                <label for="regex-description">REGEX description</label>
+                                <input type="text" class="form-control" id="regex-description" placeholder="Common form of ip">
+                            </div>
+                            <div class="input" id="regex-example">
+                                <label for="regex-example">REGEX example</label>
+                                <input type="text" class="form-control" id="regex-example" placeholder="216.239.32.34">
+                            </div>
+                            <div class="input" id="regex">
+                                <label for="regex">REGEX</label>
+                                <input type="text" class="form-control" id="regex" placeholder="216\.239\.32\.34">
+                            </div>
+                        </div>
+
+
+                        <!-- REGLA ENTRE FECHAS -->
+                        <hr class="my-4">
+
+                        <h4>
+                            Date1>Date2 rule
+                        </h4>
+
+                        <div class="module-field-grid">
+                            <div class="input-rule" id="rule-equal">
+                                <label for="rule-equal">Rule equal</label>
+                                <input type="text" class="form-control" id="rule-equal">
+                            </div>
+                            <div class="input-rule" id="rule-equal-sql">
+                                <label for="rule-equal-sql">Rule equal SQL</label>
+                                <input type="text" class="form-control" id="rule-equal-sql">
+                            </div>
+                        </div>
+
+                        <div class="module-field-grid">
+                            <div class="field-select-date">
+                                <label class="form-label" for="field-date-one">Field 1</label>
+                                <select id="field-date-one" data-dselect-search="true" class="form-select" required>
+                                    <option value="f1">Field1</option>
+                                    <option value="f2">Field2</option>
+                                </select>
+                            </div>
+                            <div class="field-select-date">
+                                <label class="form-label" for="field-date-one">Field 2</label>
+                                <select id="field-date-one" data-dselect-search="true" class="form-select" required>
+                                    <option value="f1">Field1</option>
+                                    <option value="f2">Field2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4>
+                            Default value rule
+                        </h4>
+
+                        <div class="module-field">
+                            <div class="field-select">
+                                <label class="form-label" for="default-value">Default Value</label>
+                                <input type="text" class="form-control" id="default-value">
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4>
+                            Minor field rule
+                        </h4>
+
+                        <div class="module-field">
+                            <div class="field-select">
+                                <label class="form-label" for="umbral">Range minimun</label>
+                                <input type="text" class="form-control" id="umbral" placeholder="input integer">
+                            </div>
+
+                            <div class="field-select">
+                                <label class="form-label" for="umbral">Range minimun</label>
+
+                                <select id="umbral" data-dselect-search="true" class="form-select" required>
+                                    <option value="today">Today</option>
+                                    <option value="Others">Others</option>
+                                </select>
+
+                                <input type="date" class="form-control" id="umbral">
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        
+                        <h4>
+                            Major field rule
+                        </h4>
+
+                        <div class="module-field">
+                            <div class="field-select">
+                                <label class="form-label" for="umbral">Range minimun</label>
+                                <input type="text" class="form-control" id="umbral" placeholder="input integer">
+                            </div>
+
+                            <div class="field-select">
+                                <label class="form-label" for="umbral">Range minimun</label>
+                                
+                                <select id="umbral" data-dselect-search="true" class="form-select" required>
+                                    <option value="today">Today</option>
+                                    <option value="Others">Others</option>
+                                </select>
+
+                                <input type="date" class="form-control" id="umbral">
+                            </div>
+                        </div>
+
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="reset" class="btn btn-light">Limpiar</button>
-                            <button type="submit" class="btn btn-primary">Guadar</button>
+                            <button type="reset" class="btn btn-light">Clear</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
 
                     </form>
