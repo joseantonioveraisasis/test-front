@@ -45,56 +45,49 @@
                     <h4 class="mb-3">Business rule</h4>
                     <form class="needs-validation" novalidate>
                         <div class="row g-3">
-                            <div class="col-12">
+                            <div class="col-12 input-group-sm">
                                 <label for="name" class="form-label">Rule name</label>
                                 <input id="name" type="text" class="form-control" required>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="schemas" class="form-label">Schema</label>
-                                <select id="schemas" class="form-select" required>
+                                <select id="schemas" class="form-select form-select-sm" required>
                                     <option value="">------------</option>
                                 </select>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="tables" class="form-label">Table</label>
-                                <select id="tables" data-dselect-search="true" class="form-select" required>
-                                    <option value="chrome">Chrome</option>
-                                    <option value="firefox">Firefox</option>
-                                    <option value="safari">Safari</option>
-                                    <option value="edge">Edge</option>
-                                    <option value="opera">Opera</option>
-                                    <option value="brave">Brave</option>
+                                <select id="tables" data-dselect-search="true" class="form-select form-select-sm" required>
+                                    <option value="">------------</option>
                                 </select>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="columns" class="form-label">Field</label>
-                                <select id="columns" class="form-select" required>
-                                    <option>Field 1</option>
-                                    <option>Field 2</option>
-                                    <option>Field 3</option>
+                                <select id="columns" class="form-select form-select-sm" required>
+                                    <option value="">------------</option>
                                 </select>
                             </div>
 
                             <div class="col-12 mb-4">
                                 <label for="rule" class="form-label">Type rule</label>
-                                <select id="rule" class="form-select" required>
-                                    <option value="">Select type</option>
+                                <select id="rule" class="form-select form-select-sm" required>
+                                    <option value="">------------</option>
                                     <option>Type REGEX rule</option>
                                     <option>Date1>Date2 rule</option>
                                     <option>Default value rule</option>
                                     <option>Minor field rule</option>
                                     <option>Major field rule</option>
-                                    <option disabled>Constraint rule</option>
-                                    <option disabled>Admitted value rule</option>
+                                    <option>Constraint rule</option>
+                                    <option>Admitted value rule</option>
                                 </select>
                             </div>
 
                         </div>
 
-                        <div class="form-check form-check-inline">
+                        <!-- <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" id="ractiva">
                             <label class="form-check-label" for="ractiva">Active rule</label>
                         </div>
@@ -102,46 +95,51 @@
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" id="rmandatoria" checked>
                             <label class="form-check-label" for="rmandatoria">Mandatory rule</label>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="col-12 mt-3">
                         <label for="filtro" class="form-label">Filtro</label>
                         <textarea class="form-control" id="filtro" rows="3" placeholder="Aca debe ir un ejemplo de lo que sería un filtro"></textarea>
                         </div> -->
 
-                        <hr class="my-4">
+                        
 
                         <!-- ESQUELETOS DE LOS MODULOS PARA CREAR LAS INTERACCIONES CON JS -->
                         <!-- TIPO DE REGEXP -->
-                        <h4>
+                        <!-- <h4>
                             Type REGEX rule
-                        </h4>
+                        </h4> -->
 
-                        <div class="module-field-grid">
-                            <div class="input-rule" id="rule-equal">
+                        <!-- <div class="row g-3 mt-1">
+
+                            <div class="col-6 input-group-sm" id="rule-equal">
                                 <label for="rule-equal">Rule equal</label>
                                 <input type="text" class="form-control" id="rule-equal">
                             </div>
-                            <div class="input-rule" id="rule-equal-sql">
+
+                            <div class="col-6 input-group-sm" id="rule-equal-sql">
                                 <label for="rule-equal-sql">Rule equal SQL</label>
                                 <input type="text" class="form-control" id="rule-equal-sql">
                             </div>
-                        </div>
 
-                        <div class="field-select">
+                        </div> -->
+
+                        
+
+                        <!-- <div class="field-select">
                             <label class="form-label" for="field-date-one">Type REGEXP</label>
-                            <select id="field-date-one" data-dselect-search="true" class="form-select" required>
+                            <select id="field-date-one" data-dselect-search="true" class="form-select form-select-sm" required>
                                 <option value="f1">REGEXP1</option>
                                 <option value="f2">REGEXP2</option>
                                 <option value="f3">REGEXP3</option>
                                 <option value="f4">REGEXP4</option>
                                 <option value="Others">Others</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <!-- SI EL USUARIO EN LA LISTA ANTERIOR SELECCIONE Others, SE DEBE DESPLEGAR EL SIGUIENTE BLOQUE DE NEW REGEXP -->
 
-                        <h4>
+                        <!-- <h4>
                             New REGEXP
                         </h4>
 
@@ -162,11 +160,11 @@
                                 <label for="regex">REGEX</label>
                                 <input type="text" class="form-control" id="regex" placeholder="216\.239\.32\.34">
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <!-- REGLA ENTRE FECHAS -->
-                        <hr class="my-4">
+                        <!-- <hr class="my-4">
 
                         <h4>
                             Date1>Date2 rule
@@ -259,8 +257,9 @@
 
                                 <input type="date" class="form-control" id="umbral">
                             </div>
-                        </div>
+                        </div> -->
 
+                        <hr class="my-4">
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button type="reset" class="btn btn-light">Clear</button>
@@ -276,7 +275,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dselect.js"></script>
     <script src="js/form-validation.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- <script src="js/custom.js"></script> -->
+    <script src="js/connection.js"></script>
     
 </body>
 </html>
